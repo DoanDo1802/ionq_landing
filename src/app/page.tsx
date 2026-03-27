@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 
 export default function Home() {
@@ -50,16 +51,27 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col min-h-screen bg-neutral-50 selection:bg-rose-100 selection:text-rose-900">
+    <div className="flex flex-col min-h-screen bg-neutral-50 selection:bg-brand-pink/20 selection:text-brand-pink overflow-x-hidden w-full relative">
       {/* Premium Header */}
-      <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-md border-b border-neutral-200">
-        <div className="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-          <span className="text-xl font-black tracking-tighter text-neutral-900 italic">ionQ<span className="text-rose-600">.</span></span>
+      <header className="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-xl border-b border-neutral-100 shadow-sm overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between gap-2 md:gap-4">
+          <div className="flex items-center flex-1 min-w-0">
+            <img
+              src="/logo pink.png"
+              alt="ionQ Logo"
+              className="w-auto max-w-full h-8 sm:h-10 md:h-11 object-contain rounded-sm"
+            />
+          </div>
           <a
             href="#contact"
-            className="bg-neutral-900 text-white text-sm font-bold px-5 py-2 rounded-full hover:bg-neutral-800 transition-all active:scale-95 shadow-sm"
+            className="group relative inline-flex items-center justify-center bg-brand-pink text-white text-[11px] sm:text-sm font-bold px-3 sm:px-6 py-2 sm:py-2.5 rounded-full hover:bg-brand-pink/90 transition-all duration-300 active:scale-95 shadow-[0_4px_14px_0_rgba(255,0,85,0.39)] hover:shadow-[0_6px_20px_rgba(255,0,85,0.23)] shrink-0"
           >
-            Hợp tác ngay
+            <span className="relative z-10 flex items-center gap-2">
+              Hợp tác ngay
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </span>
           </a>
         </div>
       </header>
@@ -91,9 +103,9 @@ export default function Home() {
                   </video>
                   {/* Overlay tinh tế cho video */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
-                  
+
                   {/* Mute/Unmute Button */}
-                  <button 
+                  <button
                     onClick={toggleMute3}
                     className="absolute bottom-4 right-4 z-10 p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-all active:scale-90 shadow-lg border border-white/30"
                     aria-label={isMuted3 ? "Bật âm thanh" : "Tắt âm thanh"}
@@ -126,9 +138,9 @@ export default function Home() {
                   </video>
                   {/* Overlay tinh tế cho video */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
-                  
+
                   {/* Mute/Unmute Button */}
-                  <button 
+                  <button
                     onClick={toggleMute2}
                     className="absolute bottom-4 right-4 z-10 p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-all active:scale-90 shadow-lg border border-white/30"
                     aria-label={isMuted2 ? "Bật âm thanh" : "Tắt âm thanh"}
@@ -163,7 +175,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
 
                   {/* Mute/Unmute Button */}
-                  <button 
+                  <button
                     onClick={toggleMute1}
                     className="absolute bottom-4 right-4 z-10 p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-all active:scale-90 shadow-lg border border-white/30"
                     aria-label={isMuted1 ? "Bật âm thanh" : "Tắt âm thanh"}
@@ -185,33 +197,35 @@ export default function Home() {
         </div>
 
         {/* Premium CTA Section */}
-        <section id="contact" className="relative w-full overflow-hidden bg-neutral-900 py-32 px-6">
+        <section id="contact" className="relative w-full overflow-hidden bg-white py-32 px-6">
           {/* Subtle decorative elements */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-rose-500 to-transparent opacity-50"></div>
-          <div className="absolute -top-24 -right-24 w-64 h-64 bg-rose-500/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-brand-pink/30 to-transparent"></div>
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-brand-pink/5 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-brand-pink/5 rounded-full blur-3xl"></div>
 
           <div className="relative max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight text-white">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight text-neutral-900">
               Đề Xuất Hợp Tác <br />
-              <span className="text-rose-500 italic">Quảng Bá Sản Phẩm</span>
+              <span className="text-brand-pink italic">Quảng Bá Sản Phẩm</span>
             </h2>
-            <p className="text-lg md:text-xl text-neutral-400 mb-12 leading-relaxed">
-              Mùa vi vu gõ cửa, nhu cầu làm tóc bùng nổ, cùng ionQ bứt phá mùa du lịch này! . <br className="hidden md:block" />
+            <p className="text-lg md:text-xl text-neutral-600 mb-12 leading-relaxed">
+              Mùa vi vu gõ cửa, nhu cầu làm tóc bùng nổ, cùng ionQ bứt phá mùa du lịch này! <br className="hidden md:block" />
               Tham gia ngay để nhận những quyền lợi độc quyền từ ionQ bạn nhé ^^
             </p>
-            
+
             <div className="flex flex-col items-center gap-6">
               <a
                 href="https://docs.google.com/forms/d/1Y3vtxQ2LhDVkHvQFHZT2TC4qc2THPV7TOYbcJqnDCfY/edit"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center px-12 py-5 font-bold text-white transition-all duration-200 bg-rose-600 font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-rose-600 hover:bg-rose-700 active:scale-95 shadow-[0_0_40px_-10px_rgba(225,29,72,0.5)]"
+                className="group relative flex w-full max-w-[280px] sm:max-w-none sm:inline-flex items-center justify-center px-4 sm:px-12 py-3.5 sm:py-5 font-bold text-white transition-all duration-200 bg-brand-pink font-pj rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-pink hover:bg-brand-pink/90 active:scale-95 shadow-[0_8px_30px_rgb(255,0,85,0.25)] hover:shadow-[0_8px_30px_rgb(255,0,85,0.4)] animate-pulse-gentle text-xs sm:text-base text-center leading-tight sm:leading-normal"
               >
-                NHẬN SẢN PHẨM MẪU TẠI ĐÂY
-                <svg className="w-5 h-5 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
+                <span className="flex items-center justify-center">
+                  NHẬN SẢN PHẨM MẪU TẠI ĐÂY
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
               </a>
               <span className="text-neutral-500 text-sm font-medium">Link dẫn tới Google Forms</span>
             </div>
@@ -220,15 +234,15 @@ export default function Home() {
       </main>
 
       {/* Elegant Footer */}
-      <footer className="w-full py-12 bg-neutral-950 text-neutral-500 border-t border-neutral-900">
+      <footer className="w-full py-12 bg-neutral-50 text-neutral-500 border-t border-neutral-200">
         <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-sm font-medium">
             &copy; {new Date().getFullYear()} ionQ Việt Nam.
           </div>
           <div className="flex gap-8 text-xs font-bold uppercase tracking-widest">
-            <a href="#" className="hover:text-white transition-colors">Facebook</a>
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
-            <a href="#" className="hover:text-white transition-colors">TikTok</a>
+            <a href="#" className="hover:text-brand-pink transition-colors">Facebook</a>
+            <a href="#" className="hover:text-brand-pink transition-colors">Instagram</a>
+            <a href="#" className="hover:text-brand-pink transition-colors">TikTok</a>
           </div>
         </div>
       </footer>
@@ -239,7 +253,7 @@ export default function Home() {
           href="https://docs.google.com/forms/d/1Y3vtxQ2LhDVkHvQFHZT2TC4qc2THPV7TOYbcJqnDCfY/edit"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center w-14 h-14 bg-rose-600 text-white rounded-full shadow-2xl active:scale-90 transition-transform"
+          className="flex items-center justify-center w-14 h-14 bg-brand-pink text-white rounded-full shadow-2xl active:scale-90 transition-transform animate-pulse-gentle"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
