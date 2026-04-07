@@ -7,9 +7,11 @@ export default function Home() {
   const videoRef1 = useRef<HTMLVideoElement>(null);
   const videoRef2 = useRef<HTMLVideoElement>(null);
   const videoRef3 = useRef<HTMLVideoElement>(null);
+  const videoRef5 = useRef<HTMLVideoElement>(null);
   const [isMuted1, setIsMuted1] = useState(true);
   const [isMuted2, setIsMuted2] = useState(true);
   const [isMuted3, setIsMuted3] = useState(true);
+  const [isMuted5, setIsMuted5] = useState(true);
 
   const toggleMute1 = () => {
     if (videoRef1.current) {
@@ -32,22 +34,29 @@ export default function Home() {
     }
   };
 
+  const toggleMute5 = () => {
+    if (videoRef5.current) {
+      videoRef5.current.muted = !videoRef5.current.muted;
+      setIsMuted5(videoRef5.current.muted);
+    }
+  };
+
   const images = [
-    "c Q_page-0001.jpg",
-    "c Q_page-0002.jpg",
-    "c Q_page-0003.jpg",
-    "c Q_page-0004.jpg",
-    "c Q_page-0005.jpg",
-    "c Q_page-0006.jpg",
-    "c Q_page-0007.jpg",
-    "c Q_page-0010.jpg",
-    "c Q_page-0011.jpg",
-    "c Q_page-0012.jpg",
-    "c Q_page-0013.jpg",
-    "c Q_page-0014.jpg",
-    "c Q_page-0015.jpg",
-    "c Q_page-0016.jpg",
-    "c Q_page-0019.jpg",
+    "1.png",
+    "2.png",
+    "3.png",
+    "4.png",
+    "5.png",
+    "6.png",
+    "7.png",
+    "8.png",
+    "9.png",
+    "10.png",
+    "11.png",
+    "12.png",
+    "13.png",
+    "14.png",
+    "15.png",
   ];
 
   return (
@@ -88,7 +97,7 @@ export default function Home() {
                 loading={index < 2 ? "eager" : "lazy"}
               />
               {/* Chèn video 3 sau ảnh c Q_page-0006.jpg */}
-              {image === "c Q_page-0006.jpg" && (
+              {image === "6.png" && (
                 <div className="relative w-full max-w-md mx-auto aspect-[9/16] bg-black overflow-hidden shadow-2xl my-8 rounded-2xl group/video">
                   <video
                     ref={videoRef3}
@@ -123,7 +132,7 @@ export default function Home() {
                 </div>
               )}
               {/* Chèn video 2 sau ảnh c Q_page-0007.jpg */}
-              {image === "c Q_page-0007.jpg" && (
+              {image === "7.png" && (
                 <div className="relative w-full max-w-md mx-auto aspect-[9/16] bg-black overflow-hidden shadow-2xl my-8 rounded-2xl group/video">
                   <video
                     ref={videoRef2}
@@ -158,7 +167,7 @@ export default function Home() {
                 </div>
               )}
               {/* Chèn video sau ảnh c Q_page-0011.jpg */}
-              {image === "c Q_page-0011.jpg" && (
+              {image === "9.png" && (
                 <div className="relative w-full max-w-md mx-auto aspect-[9/16] bg-black overflow-hidden shadow-2xl my-8 rounded-2xl group/video">
                   <video
                     ref={videoRef1}
@@ -181,6 +190,41 @@ export default function Home() {
                     aria-label={isMuted1 ? "Bật âm thanh" : "Tắt âm thanh"}
                   >
                     {isMuted1 ? (
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                      </svg>
+                    ) : (
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
+              )}
+              {/* Chèn video sau ảnh 11.png */}
+              {image === "11.png" && (
+                <div className="relative w-full max-w-md mx-auto aspect-[9/16] bg-black overflow-hidden shadow-2xl my-8 rounded-2xl group/video">
+                  <video
+                    ref={videoRef5}
+                    className="w-full h-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src="/mi.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  {/* Overlay tinh tế cho video */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+
+                  {/* Mute/Unmute Button */}
+                  <button
+                    onClick={toggleMute5}
+                    className="absolute bottom-4 right-4 z-10 p-3 bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white/40 transition-all active:scale-90 shadow-lg border border-white/30"
+                    aria-label={isMuted5 ? "Bật âm thanh" : "Tắt âm thanh"}
+                  >
+                    {isMuted5 ? (
                       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
                       </svg>
